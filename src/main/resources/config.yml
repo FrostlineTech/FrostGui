@@ -1,0 +1,50 @@
+# FrostGUI Configuration
+
+# Plugin settings
+settings:
+  debug-mode: false
+  enable-welcome-messages: true
+  
+# GUI settings
+gui:
+  main-menu-title: "&b&lFrostGUI"
+  rows: 3
+
+# Tab list settings
+tab-list:
+  enabled: true
+  # Header text shown above the player list when pressing Tab
+  header: "&b&lFrostCraft Development Server"
+  # Footer text shown below the player list when pressing Tab
+  footer: "&7Have a great time on our server!"
+  # Update interval in seconds (how often to refresh the header/footer)
+  update-interval: 30
+
+# Welcome messages
+welcome:
+  # Standard join message (broadcast to all players when someone joins)
+  broadcast-join: true
+  join-message: "&a{player_name} &fhas joined the server!"
+  
+  # First join message (only shows when a player joins for the first time)
+  first-join:
+    enabled: true
+    broadcast: true
+    message: "&a&lWelcome &f{player_name}&a&l to the server for the first time!"
+  
+  # Chat welcome message (direct message to player)
+  chat-welcome:
+    enabled: true
+    message: "&b&lWelcome to the server, &f{player_name}&b!"
+    colorful: true
+
+# Discord settings
+discord:
+  enabled: true
+  link: "https://discord.gg/yourserver"
+  message: "&a&lJoin our Discord server: &b{link}"
+
+# Messages
+messages:
+  prefix: "&b[FrostGUI] &f"
+  no-permission: "&cYou don't have permission to use this command."

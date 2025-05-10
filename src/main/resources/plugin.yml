@@ -1,0 +1,32 @@
+name: FrostGUI
+version: '${project.version}'
+main: com.yourusername.frostgui.FrostGUI
+api-version: '1.21'
+description: A GUI plugin for Minecraft Spigot servers
+author: YourUsername
+
+commands:
+  frostgui:
+    description: Main command for FrostGUI plugin
+    usage: /<command> [reload]
+    aliases: [fgui]
+    permission: frostgui.use
+  discord:
+    description: Shows the server's Discord link
+    usage: /<command>
+    permission: frostgui.discord
+  support:
+    description: Shows plugin support information for administrators
+    usage: /<command>
+    permission: frostgui.admin
+
+permissions:
+  frostgui.use:
+    description: Allows use of basic FrostGUI commands
+    default: true
+  frostgui.admin:
+    description: Allows administration of the FrostGUI plugin
+    default: op
+  frostgui.discord:
+    description: Allows use of the /discord command
+    default: true
