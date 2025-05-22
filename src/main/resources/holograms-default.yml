@@ -1,0 +1,27 @@
+# Default holograms configuration
+# This file will be used to create the initial holograms.yml if it doesn't exist
+
+# Example holograms that will be created on first run
+holograms:
+  # Server rules hologram
+  rules:
+    world: world
+    x: 0
+    y: 65
+    z: 0
+    lines:
+      - "&b&lServer Rules"
+      - "&f1. Be respectful to other players"
+      - "&f2. No griefing or stealing"
+      - "&f3. Have fun!"
+  
+  # Welcome message hologram
+  welcome:
+    world: world
+    x: 10
+    y: 65
+    z: 10
+    lines:
+      - "&a&lWelcome to the server!"
+      - "&fUse &b/hologram help &ffor commands"
+      - "&7Created with FrostGUI"

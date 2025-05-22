@@ -44,6 +44,17 @@ discord:
   link: "https://discord.gg/yourserver"
   message: "&a&lJoin our Discord server: &b{link}"
 
+# Hologram settings
+holograms:
+  enabled: true
+  # Line spacing - distance between lines (default: 0.25)
+  line-spacing: 0.25
+  # Default hologram format preset
+  default-format:
+    title: "&b&l{text}"
+    body: "&f{text}"
+    footer: "&7{text}"
+
 # Messages
 messages:
   prefix: "&b[FrostGUI] &f"

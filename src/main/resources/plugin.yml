@@ -1,9 +1,13 @@
 name: FrostGUI
-version: '${project.version}'
+version: '2.1'
 main: com.yourusername.frostgui.FrostGUI
-api-version: '1.21'
-description: A GUI plugin for Minecraft Spigot servers
-author: YourUsername
+api-version: '1.17'
+description: A GUI plugin for Minecraft Spigot servers with hologram support
+author: Dakota Fryberger
+# Added libraries used in the plugin
+libraries: []
+# Specify compatible versions
+softdepend: []
 
 commands:
   frostgui:
@@ -19,6 +23,11 @@ commands:
     description: Shows plugin support information for administrators
     usage: /<command>
     permission: frostgui.admin
+  hologram:
+    description: Create and manage holograms with color codes
+    usage: /<command> [create|remove|list|tp|addline|removeline|move|edit|info]
+    aliases: [holo]
+    permission: frostgui.hologram
 
 permissions:
   frostgui.use:
@@ -30,3 +39,6 @@ permissions:
   frostgui.discord:
     description: Allows use of the /discord command
     default: true
+  frostgui.hologram:
+    description: Allows creation and management of holograms
+    default: op

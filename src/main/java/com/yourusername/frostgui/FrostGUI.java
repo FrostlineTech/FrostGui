@@ -13,6 +13,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
+import com.yourusername.frostgui.commands.HologramCommand;
+import com.yourusername.frostgui.hologram.HologramManager;
+import com.yourusername.frostgui.listeners.HologramListener;
+
 /**
  * Main class for the FrostGUI plugin
  */
@@ -20,6 +24,7 @@ public class FrostGUI extends JavaPlugin implements Listener {
     
     private FileConfiguration config;
     private BukkitTask tabUpdateTask;
+    private HologramManager hologramManager;
     
     @Override
     public void onEnable() {
@@ -43,6 +48,24 @@ public class FrostGUI extends JavaPlugin implements Listener {
             startTabListUpdateTask();
             getLogger().info("Tab list customization has been enabled!");
         }
+        
+        // Initialize hologram manager
+        hologramManager = new HologramManager(this);
+        
+        // Register hologram command
+        HologramCommand hologramCommand = new HologramCommand(this, hologramManager);
+        getCommand("hologram").setExecutor(hologramCommand);
+        getCommand("hologram").setTabCompleter(hologramCommand);
+        
+        // Register hologram listener for 1.17+ entity interaction protection
+        HologramListener hologramListener = new HologramListener(this);
+        getServer().getPluginManager().registerEvents(hologramListener, this);
+        
+        // Show all holograms if enabled
+        if (config.getBoolean("holograms.enabled", true)) {
+            hologramManager.showAllHolograms();
+            getLogger().info("Holograms have been enabled and loaded!");
+        }
     }
     
     @Override
@@ -54,6 +77,13 @@ public class FrostGUI extends JavaPlugin implements Listener {
         if (tabUpdateTask != null) {
             tabUpdateTask.cancel();
             tabUpdateTask = null;
+        }
+        
+        // Remove all holograms from the world
+        if (hologramManager != null) {
+            hologramManager.removeAllHolograms();
+            hologramManager.saveAllHolograms();
+            getLogger().info("All holograms have been saved and removed!");
         }
     }
     
